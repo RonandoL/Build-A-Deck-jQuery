@@ -1,14 +1,28 @@
 $(function() {
-  $('form').submit(function(event) {
-    event.preventDefault();
-    // Use a forEach() loop within a forEach() loop
+  $('button').click(function() {
+    var suits = ['Clubs', 'Spades', 'Hearts', 'Diamonds'];
+    var numbers = ['Ace', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'];
+    var deck = [];
+    var of = " of ";
 
-    // build an array that represents a deck of cards
+    suits.forEach(function(suit) {
+      numbers.forEach(function(number) {
+        deck.push(number + of + suit);
+      });
+    });
 
-    // then display a list of every card in the deck.
-
+    $('#theDeck').empty();
+    $('#results').show();
+    deck.forEach(function(card) {
+      $('#theDeck').append('<li>' + card + '</li>');
+    });
 
   });
+
+
+
+
+
 
 
 
